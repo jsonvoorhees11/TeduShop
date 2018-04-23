@@ -13,10 +13,13 @@ namespace TeduShop.Model.Models
     public class ProductCategory:Auditable
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Alias { get; set; }
 
         public string Decription { get; set; }
@@ -30,6 +33,7 @@ namespace TeduShop.Model.Models
 
         public bool? HomeFlag { get; set; }
 
+        public virtual IEnumerable<Product> Products { get; set; }
 
     }
 }

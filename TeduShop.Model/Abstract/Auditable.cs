@@ -18,5 +18,13 @@ namespace TeduShop.Model.Abstract
 
         [MaxLength(256)]
         public string UpdateBy { get; set; }
+
+        [MaxLength(256)]
+        public string MetaKeyword { get; set; }
+
+        [MaxLength(256)]
+        public string MetaDecription { get; set; }
+
+        public bool Status { get; set; }
     }
 }
