@@ -18,7 +18,6 @@ namespace TeduShop.Data.Infrastructure
         {
             get { return _dbContext ?? (_dbContext = new TeduShopDbContext()); }
         }
-
         public void Commit()
         {
             _dbContext.SaveChanges();
