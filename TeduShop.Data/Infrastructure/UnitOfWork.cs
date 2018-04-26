@@ -16,11 +16,11 @@ namespace TeduShop.Data.Infrastructure
         }
         public TeduShopDbContext DbContext
         {
-            get { return _dbContext ?? (_dbContext = new TeduShopDbContext()); }
+            get { return _dbContext ?? _dbFactory.Init(); }
         }
         public void Commit()
         {
-            _dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
     }
 }
