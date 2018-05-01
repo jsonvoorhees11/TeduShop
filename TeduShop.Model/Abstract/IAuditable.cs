@@ -10,6 +10,6 @@ namespace TeduShop.Model.Abstract
         string UpdateBy { get; set; }
         bool Status { get; set; }
         string MetaKeyword { get; set; }
-        string MetaDecription { get; set; }
+        string MetaDescription { get; set; }
     }
 }
