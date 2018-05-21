@@ -14,12 +14,14 @@
 </head>
 <body>
     <div ng-controller="animalController">
-        <div ng-controller="catController">
+        @*<div ng-controller="catController">
             Cat:{{message}}
         </div>
         <div ng-controller="dogController">
             Dog:{{message}}
-        </div>
+        </div>*@
+        <input type="number" ng-model="num" />{{num}}
+        <button ng-click="checkEven()">Check</button>
         Animal:{{message}}
     </div>
 </body>
