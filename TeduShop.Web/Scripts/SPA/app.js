@@ -2,9 +2,9 @@
 
 var myApp = angular.module('myModule', []);
 myApp.controller("animalController", animalController);
-myApp.service("validator", validator);
-
-animalController.$inject = ['$scope', 'validator'];
+myApp.service("validatorService", validatorService);
+myApp.directive("teduShopDirective", teduShopDirective);
+animalController.$inject = ['$scope', 'validatorService'];
 myApp.controller("dogController", dogController);
 myApp.controller("catController", catController);
 
@@ -22,7 +22,7 @@ function catController($scope) {
     $scope.message = "mew mew";
 }
 
-function validator($window) {
+function validatorService($window) {
     return {
         checkNumber: checkNumber
     }
@@ -34,4 +34,9 @@ function validator($window) {
             return "This is odd";
         }
     } 
+}
+function teduShopDirective() {
+    return {
+        templateUrl:'/Scripts/SPA/template.html',
+    }
 }

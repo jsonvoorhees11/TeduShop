@@ -230,6 +230,7 @@
     <Content Include="Scripts\plugins\angular\angular.min.js" />
     <Content Include="Scripts\plugins\angular\index.js" />
     <Content Include="Scripts\SPA\app.js" />
+    <Content Include="Scripts\SPA\template.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
