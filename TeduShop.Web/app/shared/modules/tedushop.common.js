@@ -3,5 +3,5 @@
 
 
 (function () {
-    angular.module('tedushop.common', ['ui.router']).config(config);
+    angular.module('tedushop.common', ['ui.router']);
 })();

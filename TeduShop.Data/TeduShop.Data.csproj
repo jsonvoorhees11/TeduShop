@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201805200345454_Update-Key.Designer.cs">
       <DependentUpon>201805200345454_Update-Key.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805270944189_update-model.cs" />
+    <Compile Include="Migrations\201805270944189_update-model.Designer.cs">
+      <DependentUpon>201805270944189_update-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805200345454_Update-Key.resx">
       <DependentUpon>201805200345454_Update-Key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805270944189_update-model.resx">
+      <DependentUpon>201805270944189_update-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,8 +22,8 @@ namespace TeduShop.Web.Infrastructure.Extensions
 
             postCategory.CreatedDate = postCategoryVM.CreatedDate;
             postCategory.CreatedBy = postCategoryVM.CreatedBy;
-            postCategory.UpdateDate = postCategoryVM.UpdateDate;
-            postCategory.UpdateBy = postCategoryVM.UpdateBy;
+            postCategory.UpdatedDate = postCategoryVM.UpdatedDate;
+            postCategory.UpdatedBy = postCategoryVM.UpdatedBy;
             postCategory.MetaKeyword = postCategoryVM.MetaKeyword;
             postCategory.MetaDescription = postCategoryVM.MetaDescription;
             postCategory.Status = postCategoryVM.Status;
@@ -43,8 +43,8 @@ namespace TeduShop.Web.Infrastructure.Extensions
 
             post.CreatedDate = postVM.CreatedDate;
             post.CreatedBy = postVM.CreatedBy;
-            post.UpdateDate = postVM.UpdateDate;
-            post.UpdateBy = postVM.UpdateBy;
+            post.UpdatedDate = postVM.UpdatedDate;
+            post.UpdatedBy = postVM.UpdatedBy;
             post.MetaKeyword = postVM.MetaKeyword;
             post.MetaDescription = postVM.MetaDescription;
             post.Status = postVM.Status;

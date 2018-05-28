@@ -1,5 +1,5 @@
 ﻿(function (app) {
-    app.controller('tedushopListController', tedushopListController);
+    app.controller('productListController', tedushopListController);
     function tedushopListController() {
 
     }
