@@ -1,8 +1,7 @@
 namespace TeduShop.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class updatemodel : DbMigration
     {
         public override void Up()
@@ -28,7 +27,7 @@ namespace TeduShop.Data.Migrations
             DropColumn("dbo.Posts", "UpdateDate");
             DropColumn("dbo.Posts", "UpdateBy");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Posts", "UpdateBy", c => c.String(maxLength: 256));

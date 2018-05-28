@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Model.Models;
-using System.Linq;
 
 namespace TeduShop.Data.Repositories
 {
@@ -25,7 +21,7 @@ namespace TeduShop.Data.Repositories
             var query = from p in DbContext.Posts
                         join pt in DbContext.PostTags
                         on p.ID equals pt.PostID
-                        where pt.TagID == tag && p.Status==true 
+                        where pt.TagID == tag && p.Status == true
                         orderby p.CreatedDate descending
                         select p;
             totalRow = query.Count();

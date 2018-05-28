@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
-    public abstract class BaseRepository<T>:IRepository<T> where T:class
+    public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
         #region Properties
+
         private TeduShopDbContext _dataContext;
         private readonly IDbSet<T> _dbSet;
 
@@ -22,9 +21,10 @@ namespace TeduShop.Data.Infrastructure
 
         protected TeduShopDbContext DbContext
         {
-            get { return _dataContext ?? (_dataContext= DbFactory.Init()) ; }
+            get { return _dataContext ?? (_dataContext = DbFactory.Init()); }
         }
-        #endregion
+
+        #endregion Properties
 
         protected BaseRepository(IDbFactory dbFactory)
         {
@@ -33,10 +33,12 @@ namespace TeduShop.Data.Infrastructure
         }
 
         #region Implementation
+
         public virtual T Add(T entity)
         {
             return _dbSet.Add(entity);
         }
+
         public virtual void Update(T entity)
         {
             _dbSet.Attach(entity);
@@ -54,7 +56,7 @@ namespace TeduShop.Data.Infrastructure
             return _dbSet.Remove(entity);
         }
 
-        public virtual void DeleteMulti(Expression<Func<T,bool>> where)
+        public virtual void DeleteMulti(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = _dbSet.Where<T>(where).AsEnumerable();
             foreach (var item in objects)
@@ -68,18 +70,17 @@ namespace TeduShop.Data.Infrastructure
             return _dbSet.Find(id);
         }
 
-        public virtual IEnumerable<T> GetMany(Expression<Func<T,bool>> where,string includes)
+        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
         {
             return _dbSet.Where<T>(where);
         }
 
-
-        public virtual int Count(Expression<Func<T,bool>> where)
+        public virtual int Count(Expression<Func<T, bool>> where)
         {
             return _dbSet.Count<T>(where);
         }
 
-        public IEnumerable<T> GetAll(string[] includes=null)
+        public IEnumerable<T> GetAll(string[] includes = null)
         {
             //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE
             if (includes != null && includes.Count() > 0)
@@ -88,7 +89,6 @@ namespace TeduShop.Data.Infrastructure
                 foreach (var include in includes.Skip(1))
                 {
                     query = query.Include(include);
-
                 }
                 return query.AsQueryable();
             }
@@ -108,7 +108,7 @@ namespace TeduShop.Data.Infrastructure
             return _dataContext.Set<T>().FirstOrDefault(expression);
         }
 
-        public virtual IEnumerable<T> GetMulti(Expression<Func<T,bool>> predicate, string[] includes=null)
+        public virtual IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
         {
             //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE
             if (includes != null && includes.Count() > 0)
@@ -122,14 +122,14 @@ namespace TeduShop.Data.Infrastructure
             return _dataContext.Set<T>().Where(predicate).AsQueryable<T>();
         }
 
-        public virtual IEnumerable<T> GetMultiPaging(Expression<Func<T,bool>> predicate, out int total,
-            int index=0,int size=20, string[] includes = null)
+        public virtual IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> predicate, out int total,
+            int index = 0, int size = 20, string[] includes = null)
         {
             int skipCount = index * size;
             IQueryable<T> resetSet;
 
             //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE
-            if(includes!=null && includes.Count() > 0)
+            if (includes != null && includes.Count() > 0)
             {
                 var query = _dataContext.Set<T>().Include(includes.First());
                 foreach (var include in includes.Skip(1))
@@ -148,11 +148,11 @@ namespace TeduShop.Data.Infrastructure
             return resetSet.AsQueryable();
         }
 
-        public bool CheckContains(Expression<Func<T,bool>> predicate)
+        public bool CheckContains(Expression<Func<T, bool>> predicate)
         {
             return _dataContext.Set<T>().Count<T>(predicate) > 0;
         }
 
-        #endregion
+        #endregion Implementation
     }
 }

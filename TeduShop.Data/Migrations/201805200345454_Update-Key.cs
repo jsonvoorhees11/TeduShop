@@ -1,8 +1,7 @@
 namespace TeduShop.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class UpdateKey : DbMigration
     {
         public override void Up()
@@ -11,7 +10,7 @@ namespace TeduShop.Data.Migrations
             AlterColumn("dbo.IdentityUserRoles", "RoleId", c => c.String(nullable: false, maxLength: 128));
             AddPrimaryKey("dbo.IdentityUserRoles", new[] { "UserId", "RoleId" });
         }
-        
+
         public override void Down()
         {
             DropPrimaryKey("dbo.IdentityUserRoles");

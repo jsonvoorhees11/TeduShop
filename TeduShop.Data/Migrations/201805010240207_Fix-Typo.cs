@@ -1,8 +1,7 @@
 namespace TeduShop.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class FixTypo : DbMigration
     {
         public override void Up()
@@ -18,7 +17,7 @@ namespace TeduShop.Data.Migrations
             DropColumn("dbo.PostCategories", "MetaDecription");
             DropColumn("dbo.Posts", "MetaDecription");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Posts", "MetaDecription", c => c.String(maxLength: 256));
