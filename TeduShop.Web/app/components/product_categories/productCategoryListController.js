@@ -7,12 +7,15 @@
         $scope.productCategories = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
-        $scope.getProductCategories = getProductCategories;
+        $scope.keyword = '';
 
+        $scope.getProductCategories = getProductCategories;
+        $scope.search = search;
         function getProductCategories(page) {            
             page = page || 0;
             var config = {
                 params: {
+                    keyword: $scope.keyword,
                     page: page,
                     pageSize: 20
                 }
@@ -26,6 +29,10 @@
             }, function () {
                 console.log('Load product categories failed.');
             });
+        }
+
+        function search() {
+            getProductCategories();
         }
 
         $scope.getProductCategories();
