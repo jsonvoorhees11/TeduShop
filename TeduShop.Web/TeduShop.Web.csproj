@@ -241,7 +241,8 @@
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
     <Content Include="app\shared\filters\statusFilter.js" />
-    <Content Include="app\shared\service\apiService.js" />
+    <Content Include="app\shared\services\apiService.js" />
+    <Content Include="app\shared\services\notificationService.js" />
     <Content Include="Assets\Admin\css\AdminLTE.css" />
     <Content Include="Assets\Admin\css\AdminLTE.min.css" />
     <Content Include="Assets\Admin\css\alt\AdminLTE-bootstrap-social.css" />
@@ -1832,6 +1833,10 @@
     <Content Include="Assets\Admin\libs\slimScroll\examples\style.css" />
     <Content Include="Assets\Admin\libs\slimScroll\jquery.slimscroll.js" />
     <Content Include="Assets\Admin\libs\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.css" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.js" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.min.css" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -2076,6 +2081,13 @@
     <Content Include="Assets\Admin\libs\font-awesome\scss\_variables.scss" />
     <Content Include="app\shared\modules\tedushop.common.js" />
     <Content Include="app\components\product_categories\productCategory.module.js" />
+    <Content Include="Assets\Admin\libs\toastr\.bower.json" />
+    <Content Include="Assets\Admin\libs\toastr\bower.json" />
+    <Content Include="Assets\Admin\libs\toastr\LICENSE" />
+    <Content Include="Assets\Admin\libs\toastr\README.md" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.js.map" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.less" />
+    <Content Include="Assets\Admin\libs\toastr\toastr.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>

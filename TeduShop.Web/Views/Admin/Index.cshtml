@@ -10,7 +10,8 @@
     <link href="~/Assets/Admin/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link href="~/Assets/Admin/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    
+    <!--Toatr-->
+    <link href="~/Assets/Admin/libs/toastr/toastr.css" rel="stylesheet" />
     <!-- Ionicons -->
     <link href="~/Assets/Admin/libs/ionicons/docs/css/ionicons.min.css" rel="stylesheet" />
 
@@ -585,15 +586,19 @@
     <!-- Begin embed AngularJS -->
     <script src="~/Assets/Admin/libs/angular/angular.js"></script>
     <script src="~/Assets/Admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
-
+    <script src="~/Assets/Admin/libs/toastr/toastr.js"></script>
+    
+    <script src="~/app/app.js"></script>
     <script src="~/app/shared/modules/tedushop.common.js"></script>
-    <script src="~/app/shared/filters/statusFilter.js"></script>
     <script src="~/app/components/directives/pagerDirective.js"></script>
+    
     <script src="~/app/components/products/products.module.js"></script>
     <script src="~/app/components/product_categories/productCategory.module.js"></script>
-    <script src="~/app/app.js"></script>
-    <script src="~/app/shared/service/apiService.js"></script>
-
+    
+    <script src="~/app/shared/filters/statusFilter.js"></script>
+    <script src="~/app/shared/services/apiService.js"></script>
+    <script src="~/app/shared/services/notificationService.js"></script>
+    
     <script src="~/app/components/products/productListController.js"></script>
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productEditController.js"></script>
