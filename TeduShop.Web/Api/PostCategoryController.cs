@@ -15,9 +15,10 @@ namespace TeduShop.Web.Api
     [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
-        IPostCategoryService _postCategoryService;
-        //IErrorService 
-        public PostCategoryController(IErrorService errorService,IPostCategoryService postCategoryService):base(errorService)
+        private IPostCategoryService _postCategoryService;
+
+        //IErrorService
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
@@ -102,13 +103,12 @@ namespace TeduShop.Web.Api
                 else
                 {
                     var listCategory = _postCategoryService.GetAll().ToList();
-                    
-                    List<PostCategoryViewModel> listPostCategoryVM = Mapper.Map<List<PostCategory>, List<PostCategoryViewModel> >(listCategory); 
-                    response = request.CreateResponse(HttpStatusCode.OK,listPostCategoryVM);
+
+                    List<PostCategoryViewModel> listPostCategoryVM = Mapper.Map<List<PostCategory>, List<PostCategoryViewModel>>(listCategory);
+                    response = request.CreateResponse(HttpStatusCode.OK, listPostCategoryVM);
                 }
                 return response;
             });
         }
-
     }
 }

@@ -11,7 +11,7 @@
 
         $scope.getProductCategories = getProductCategories;
         $scope.search = search;
-        function getProductCategories(page) {            
+        function getProductCategories(page) {
             page = page || 0;
             var config = {
                 params: {
@@ -25,7 +25,7 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy');
                 }
-                
+
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;

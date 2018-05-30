@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -13,9 +9,9 @@ namespace TeduShop.UnitTest.RepositoryTest
     [TestClass]
     public class PostCategoryRepositoryTest
     {
-        IDbFactory _dbFactory;
-        IPostCategoryRepository _objectRepository;
-        IUnitOfWork _unitOfWork;
+        private IDbFactory _dbFactory;
+        private IPostCategoryRepository _objectRepository;
+        private IUnitOfWork _unitOfWork;
 
         [TestInitialize]
         public void Initialize()
@@ -44,8 +40,7 @@ namespace TeduShop.UnitTest.RepositoryTest
             _unitOfWork.Commit();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(6,result.ID);
-
+            Assert.AreEqual(6, result.ID);
         }
     }
 }

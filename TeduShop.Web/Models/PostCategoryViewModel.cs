@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace TeduShop.Web.Models
 {
@@ -12,8 +10,10 @@ namespace TeduShop.Web.Models
 
         [Required]
         public string Name { set; get; }
+
         [Required]
         public string Alias { set; get; }
+
         public string Description { set; get; }
         public int? ParentID { set; get; }
         public int? DisplayOrder { set; get; }

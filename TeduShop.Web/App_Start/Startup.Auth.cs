@@ -7,7 +7,6 @@ using System;
 using TeduShop.Data;
 using TeduShop.Model.Models;
 
-
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
 
 namespace TeduShop.Web.App_Start

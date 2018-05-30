@@ -18,9 +18,8 @@
             controller: [
                 '$scope', function ($scope) {
                     $scope.search = function (i) {
-                        
-                        if ($scope.searchFunc) {                           
-                            $scope.searchFunc({page:i});
+                        if ($scope.searchFunc) {
+                            $scope.searchFunc({ page: i });
                         }
                     };
 
@@ -43,9 +42,7 @@
                     $scope.pagePlus = function (count) {
                         return +$scope.page + count;
                     }
-
                 }]
         }
     }
-
 })(angular.module('tedushop.common'));

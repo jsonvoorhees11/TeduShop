@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -23,7 +22,7 @@ namespace TeduShop.UnitTest.ServiceTest
         {
             _mockRepository = new Mock<IPostCategoryRepository>();
             _mockUnitOfWork = new Mock<IUnitOfWork>();
-            _categoryService = new PostCategoryService(_mockRepository.Object,_mockUnitOfWork.Object);
+            _categoryService = new PostCategoryService(_mockRepository.Object, _mockUnitOfWork.Object);
             _listCategory = new List<PostCategory>()
             {
                 new PostCategory(){ID=1, Name="DM1", Status=true},
@@ -31,6 +30,7 @@ namespace TeduShop.UnitTest.ServiceTest
                 new PostCategory(){ID=3, Name="DM3", Status=true}
             };
         }
+
         [TestMethod]
         public void PostCategory_Service_GetAll()
         {
@@ -62,7 +62,6 @@ namespace TeduShop.UnitTest.ServiceTest
             //Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.ID);
-
         }
     }
 }

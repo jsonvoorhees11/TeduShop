@@ -1,5 +1,4 @@
 ﻿(function (app) {
-
     app.filter('statusFilter', statusFilter);
     function statusFilter() {
         return function (input) {

@@ -1,5 +1,4 @@
-﻿
-/// <reference path="../../../Assets/admin/libs/angular/angular.js" />
+﻿/// <reference path="../../../Assets/admin/libs/angular/angular.js" />
 
 (function () {
     angular.module('tedushop.products', ['tedushop.common']).config(config);

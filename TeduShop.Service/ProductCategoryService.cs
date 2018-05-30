@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -28,7 +24,7 @@ namespace TeduShop.Service
         void SaveChanges();
     }
 
-    public class ProductCategoryService:IProductCategoryService
+    public class ProductCategoryService : IProductCategoryService
     {
         private IProductCategoryRepository _productCategoryRepository;
         private IUnitOfWork _unitOfWork;

@@ -6,6 +6,5 @@
         public string TagID { set; get; }
         public virtual PostViewModel Post { set; get; }
         public virtual TagViewModel Tag { set; get; }
-
     }
 }

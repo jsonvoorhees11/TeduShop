@@ -1,17 +1,16 @@
-﻿
-(function (app) {
+﻿(function (app) {
     app.controller('productCategoryAddController', productCategoryAddController);
 
-    productCategoryAddController.$inject = ['$scope', 'apiService','notificationService','$state'];
+    productCategoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state'];
 
-    function productCategoryAddController($scope, apiService,notificationService, $state) {
+    function productCategoryAddController($scope, apiService, notificationService, $state) {
         $scope.productCategory = {
             CreatedDate: new Date(),
-            Status:true
+            Status: true
         }
         $scope.parentCategories = [];
         $scope.addProductCategory = addProductCategory;
-        
+
         function loadParentCategories() {
             apiService.get('api/productCategory/getallparents', null, function (result) {
                 $scope.parentCategories = result.data;
@@ -31,5 +30,4 @@
 
         loadParentCategories();
     }
-
 })(angular.module('tedushop.product_categories'));

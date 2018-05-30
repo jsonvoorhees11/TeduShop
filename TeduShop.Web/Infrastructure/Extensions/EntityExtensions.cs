@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TeduShop.Model.Models;
+﻿using TeduShop.Model.Models;
 using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Infrastructure.Extensions
 {
     public static class EntityExtensions
     {
-        public static void UpdatePostCategory(this PostCategory postCategory,PostCategoryViewModel postCategoryVM)
+        public static void UpdatePostCategory(this PostCategory postCategory, PostCategoryViewModel postCategoryVM)
         {
             postCategory.ID = postCategoryVM.ID;
             postCategory.Name = postCategoryVM.Name;
@@ -27,8 +23,8 @@ namespace TeduShop.Web.Infrastructure.Extensions
             postCategory.MetaKeyword = postCategoryVM.MetaKeyword;
             postCategory.MetaDescription = postCategoryVM.MetaDescription;
             postCategory.Status = postCategoryVM.Status;
-
         }
+
         public static void UpdatePost(this Post post, PostViewModel postVM)
         {
             post.ID = postVM.ID;
@@ -68,7 +64,6 @@ namespace TeduShop.Web.Infrastructure.Extensions
             productCategory.MetaKeyword = productCategoryVm.MetaKeyword;
             productCategory.MetaDescription = productCategoryVm.MetaDescription;
             productCategory.Status = productCategoryVm.Status;
-
         }
     }
 }

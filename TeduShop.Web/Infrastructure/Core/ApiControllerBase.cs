@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -29,7 +27,7 @@ namespace TeduShop.Web.Infrastructure.Core
             {
                 response = function.Invoke();
             }
-            catch(DbEntityValidationException ex)
+            catch (DbEntityValidationException ex)
             {
                 foreach (var error in ex.EntityValidationErrors)
                 {
@@ -41,14 +39,13 @@ namespace TeduShop.Web.Infrastructure.Core
                 }
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
-                
             }
-            catch(DbUpdateException dUEx)
+            catch (DbUpdateException dUEx)
             {
                 LogError(dUEx);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, dUEx.InnerException.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
@@ -69,7 +66,6 @@ namespace TeduShop.Web.Infrastructure.Core
             }
             catch
             {
-
             }
         }
     }

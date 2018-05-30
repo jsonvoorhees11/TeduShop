@@ -32,7 +32,6 @@
             toastr.info(info);
         }
 
-
         return {
             displaySuccess: displaySuccess,
             displayError: displayError,

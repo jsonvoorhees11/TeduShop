@@ -1,16 +1,14 @@
-﻿using System;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using Owin;
+using System.Reflection;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
 using TeduShop.Data;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
@@ -28,6 +26,7 @@ namespace TeduShop.Web.App_Start
             ConfigAutofac(app);
             ConfigureAuth(app);
         }
+
         private void ConfigAutofac(IAppBuilder app)
         {
             var builder = new ContainerBuilder();
@@ -46,24 +45,20 @@ namespace TeduShop.Web.App_Start
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
-
             //Repositories
             builder.RegisterAssemblyTypes(typeof(PostCategoryRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces().InstancePerRequest();
 
-
             //Services
             builder.RegisterAssemblyTypes(typeof(PostCategoryService).Assembly)
                 .Where(t => t.Name.EndsWith("Service"))
                 .AsImplementedInterfaces().InstancePerRequest();
-                
 
             Autofac.IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container);
-            
         }
     }
 }
