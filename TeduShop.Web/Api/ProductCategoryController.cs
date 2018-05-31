@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
@@ -128,6 +129,52 @@ namespace TeduShop.Web.Api
             });
         }
 
+        [Route("delete")]
+        [HttpDelete]
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+                else
+                {
+                    var oldProductCategory =_productCategoryService.Delete(id);
+                    _productCategoryService.SaveChanges();
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(oldProductCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
+                return response;
+            });
+        }
+
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedIds)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(checkedIds);
+                    foreach (var id in ids)
+                    {
+                        var oldProductCategory = _productCategoryService.Delete(id);
+                    }
+                    _productCategoryService.SaveChanges();
+                    response = request.CreateResponse(HttpStatusCode.OK,ids.Count);
+                }
+                return response;
+            });
+        }
 
     }
 }

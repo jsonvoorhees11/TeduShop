@@ -11,7 +11,7 @@ namespace TeduShop.Service
 
         void Update(ProductCategory postCategory);
 
-        void Delete(int id);
+        ProductCategory Delete(int id);
 
         IEnumerable<ProductCategory> GetAll();
 
@@ -41,9 +41,9 @@ namespace TeduShop.Service
             return result;
         }
 
-        public void Delete(int id)
+        public ProductCategory Delete(int id)
         {
-            _productCategoryRepository.Delete(id);
+            return _productCategoryRepository.Delete(id);
         }
 
         public IEnumerable<ProductCategory> GetAll()
