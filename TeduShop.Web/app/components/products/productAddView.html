@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Hình ảnh</label>
+                <label class="col-sm-2 control-label">Hình ảnh</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" ng-maxlength="256" name="image" ng-model="product.Image">
                     <button class="btn btn-default" ng-click="chooseImage()" type="button">Chọn ảnh</button>
@@ -82,11 +82,23 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Mô tả sản phẩm</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" ckeditor="ckeditorOptions" name="content" ng-model="product.Content"></textarea>                
+                    <textarea class="form-control" ckeditor="ckeditorOptions" name="content" ng-model="product.Content"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Meta description</label>
+                <label class="col-sm-2 control-label">Tag</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="tags" ng-model="product.Tags">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Meta keyword</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="metaKeyword" ng-model="product.MetaKeyword">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Meta description</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" name="metaDescription" ng-model="product.MetaDescription"></textarea>
                 </div>

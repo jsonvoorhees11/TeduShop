@@ -89,6 +89,7 @@ namespace TeduShop.Web.Infrastructure.Extensions
             product.MetaKeyword = productVM.MetaKeyword;
             product.MetaDescription = productVM.MetaDescription;
             product.Status = productVM.Status;
+            product.Tags = productVM.Tags;
         }
     }
 }

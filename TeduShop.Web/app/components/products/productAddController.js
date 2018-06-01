@@ -7,11 +7,11 @@
         $scope.product = {
             CreatedDate: new Date(),
             Status: true
-        }
+        };
         $scope.ckeditorOptions = {
             language: 'vi',
             height: '200px'
-        }
+        };
         $scope.productCategories = [];
         $scope.addProduct = addProduct;
         $scope.getSeoTitle = getSeoTitle;
@@ -38,15 +38,15 @@
             }, function (error) {
                 console.log("Can't get list parent");
             });
-        };
+        }
 
         $scope.chooseImage = function chooseImage() {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
                 $scope.product.Image = fileUrl;
-            }
+            };
             finder.popup();
-        }
+        };
 
         loadProductCategories();
     }
