@@ -16,6 +16,7 @@
         $scope.addProduct = addProduct;
         $scope.getSeoTitle = getSeoTitle;
         $scope.loadProductCategories = loadProductCategories;
+        
 
         function addProduct() {
             apiService.post('api/product/create', $scope.product,
@@ -38,6 +39,15 @@
                 console.log("Can't get list parent");
             });
         };
+
+        $scope.chooseImage = function chooseImage() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.product.Image = fileUrl;
+            }
+            finder.popup();
+        }
+
         loadProductCategories();
     }
 
