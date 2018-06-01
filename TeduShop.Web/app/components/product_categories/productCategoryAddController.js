@@ -1,15 +1,16 @@
 ﻿(function (app) {
     app.controller('productCategoryAddController', productCategoryAddController);
 
-    productCategoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state'];
+    productCategoryAddController.$inject = ['$scope', 'apiService', 'notificationService', 'commonService', '$state'];
 
-    function productCategoryAddController($scope, apiService, notificationService, $state) {
+    function productCategoryAddController($scope, apiService, notificationService,commonService, $state) {
         $scope.productCategory = {
             CreatedDate: new Date(),
             Status: true
         }
         $scope.parentCategories = [];
         $scope.addProductCategory = addProductCategory;
+        $scope.getSeoTitle = getSeoTitle;
 
         function loadParentCategories() {
             apiService.get('api/productCategory/getallparents', null, function (result) {
@@ -26,6 +27,9 @@
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công');
                 });
+        };
+        function getSeoTitle() {
+            $scope.productCategory.Alias = commonService.getSeoTitle($scope.productCategory.Name);
         }
 
         loadParentCategories();
